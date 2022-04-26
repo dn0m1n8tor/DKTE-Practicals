@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn2").click(function () {
+                $("#p1").show(1000);
+            });
+        })
+
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#p1").hide(1000);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btn3").click(function () {
+                $("#p2").toggle(1000);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn();
+                $("#div3").fadeIn(5000);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#txt").click(function () {
+                $('#txt').css("color", "blue");
+            });
+        });
+        $(document).ready(function () {
+            $("#bg").click(function () {
+                $('#bg').css("background-color", "yellow");
+            });
+        });
+        $(document).ready(function () {
+            $("#button3").click(function () {
+                $('#txt2').css({ "font-family": "Arial, Helvetica, sans-serif", "font-size": "200%" });
+            });
+        });
+
+
+        $(document).ready(function () {
+            $("#p3").mouseover(function () {
+                alert("You entered into p tag");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#p4").mouseleave(function () {
+                alert("Bye ! You now leaved the p tag");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#p5").mousedown(function () {
+                alert("You are prohibited from copying the this text !!!");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#p6").mouseup(function () {
+                alert("You copied this text !!!");
+            });
+        });
+
+        
+
+        $(document).ready(function () {
+                $("#btnn1").click(function () {
+                    alert("Text : " + $("#test").text());
+                });
+        });
+
+        $(document).ready(function () {
+            $("#btnn2").click(function () {
+                alert("HTML : " + $("#test").html());
+            });
+        });
+
+       
+
+        $(document).ready(function () {
+                $("#btnn3").click(function () {
+                    $("#p6").text("Hello World");
+                });
+            });
+
+        $(document).ready(function () {
+            $("#btnn4").click(function () {
+                $("#p7").html("<h2>Set as HTML</h2>");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btnn5").click(function () {
+                $("#div5").load("demoText.txt");
+            });
+        });
+
+    </script>
+    
+</head>
+
+<body>
+    <div>
+        <h1 id="p1">This text will hide and show</h1><br>
+        <button id="btn1"
+            style="color: black; background-color: aqua; padding: 4px; margin-top: 4px; margin-left: 100px; text-align: center; width: 50px;">Hide</button>
+        <button id="btn2"
+            style="color: black; background-color: aqua; padding: 4px; margin-top: 4px; text-align: center; width: 50px;">Show</button>
+        <br>
+        <button id="btn3"
+            style="color: black; background-color: aqua; padding: 4px; margin-top: 4px; margin-left: 125px; text-align: center; width: 50px;">Toggle</button>
+
+        <h2 id="p2">This is a Toggling Text</h2><br>
+
+        <!-- <button id="btn"
+            style="color: black; background-color: aqua; padding: 4px; margin-top: 4px; margin-left: 100px; text-align: center; width: 80px;border-radius: 4px;">FadeIn
+            Images</button>
+        <div id="div1" style="color: red; width: 200px; height: 200px;"></div> <br>
+        <div id="div2" style="color: greenyellow; width: 200px; height: 200px;"></div> <br>
+        <div id="div3" style="color: blue; width: 200px; height: 200px;"></div> <br> -->
+
+        
+
+        <h2 id="txt">
+            This text will change the color onclick
+        </h2>
+
+        <h3 id="txt2">This will change font family</h3>
+        <button id="button3">Font Changer</button>
+
+        <h2 id="bg" style="position: relative;">This text's background will change the color onclick</h2>
+
+        <!-- Event Handling -->
+        <p id="p3">After entering this region Pop up will appear</p> <br><br>
+        <p id="p4">After leaving this paragraph Pop up will appear</p> <br><br>
+        <p id="p5">Try to Copy me if you can ;)</p>
+        <p id="test" >This is some<b>Bold</b>text in paragraph </p>
+        <button id="btnn1">Show Text</button>
+        <button id="btnn2">Show HTML</button><br>
+        <button id="btnn3">Set Text</button>
+        <button id="btnn4">Set HTML</button>
+        <p id="p6">This text will change set text</p>
+        <p id="p7">This text will change set html</p>
+
+        <button id="btnn5">Get External content</button>
+        <div id="div5">
+            <h1>This is a heading</h1>
+            <p>This is a paragraph</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

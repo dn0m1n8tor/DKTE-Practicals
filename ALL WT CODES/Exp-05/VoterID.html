@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+    
+    <style type="text/css">
+        body{ 
+            width: 100%;
+            height: 100%;
+            margin: 50px auto ;
+            background-color: darkgray;
+        }
+        #div1{
+            text-indent: 20px;
+            align-items: center;
+            display: block;
+            font-size: 20px;
+            background-color: antiquewhite;
+            border: 2px solid black;
+            border-radius: 15px;
+            width: 750px;
+            height: auto;
+            padding: 15px; 
+            margin: auto;
+        }
+        h1{
+            text-shadow: 2px 2px 2px #CCCCCC;
+            color: blue;
+            letter-spacing: 1px;
+        }
+        p{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        label{
+            display: inline-block;
+            width: 300px;
+            text-align: left;
+            font-size: 22px;
+        }
+        .cls{
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 22px;
+            font-size: 16px;
+            
+        }
+        input[type=submit] {
+            background-color: #62529c;
+            border: 1px black;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px 0 rgb(0,0,0,0.2),0 6px 20px 0 rgb(0,0,0,0.19);
+            color: #fff;
+            padding: 14px 40px;
+            text-decoration: none;
+            margin: auto;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            justify-content: center;
+            display:grid;
+          }
+    </style>
+    <script>
+        function validateName()
+        {
+            let fname = document.forms["myform"]["fname"].value;
+            let mname = document.forms["myform"]["mname"].value;
+            let lname = document.forms["myform"]["lname"].value;
+            var regex = /^[A-Za-z]+$/;
+            if (fname.match(regex) && mname.match(regex) && lname.match(regex)) {
+                return true;
+            }
+            else {
+                alert("Enter the valid name !!!");
+                return false;
+            }
+        }
+        function validateContact()
+        {
+            let mobile = document.forms["myform"]["mob"].value;
+            let regex=/^[1-9]{1}[0-9]{9}/;
+            if((mobile.match(regex))&&(mobile.length==10))
+            {
+                return true;
+            }
+            else{
+                alert("Contact Number should be of 10 digits !!! \nNote: Contact number should not start with 0.");
+                return false;
+            }
+        }
+        function validateMail()
+        {
+            let mail = document.forms["myform"]["email"].value;
+            let regex3 = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if((regex3.test(mail)))
+            {
+                return true;
+            }
+            else{
+                alert("Enter Valid E-Mail ID !!!");
+                return false;
+            }
+        }
+        function validateAadhar()
+        {
+            let adh = document.forms["myform"]["aadhar"].value;
+            let regex=/^[2-9]{1}[0-9]{11}/;
+            if((adh.match(regex))&&(adh.length==12))
+            {
+                return true;
+            }
+            else{
+                alert("Enter a Valid Aadhar Number !!! \nNote: Aadhar number should not start with 0 or 1 and must be of 12 digit.");
+                return false;
+            }
+
+        }
+        function validateAddress()
+        {
+            let addr = document.forms["myform"]["addre"].value;
+            if(addr=="")
+            {
+                alert("Fill out the Address !!!");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        function validateDOB()
+        {
+            //let date = document.forms["myform"]["dob"].value;
+            let date = new Date(document.getElementById("dob").value);
+            var year = date.getFullYear();
+            let date2 = new Date();
+            var year2 = date2.getFullYear();
+            if((year2-year)<=18){
+                alert("You are not eligible for Voter Registration !!!");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        function validateForm() {
+            
+            if(!(validateName()))
+            { 
+                return false;                
+            }
+            if(!validateDOB())
+            {
+                return false;
+            }
+            if(!validateMail())
+            {
+                return false;
+            }
+            if(!validateContact()) 
+            {
+                return false;
+            }
+            if(!validateAadhar())
+            {
+                return false;
+            }
+            if(!validateAddress())
+            {
+                return false;
+            }
+            else
+            {
+                let text = "You have successfully Registered for Voter Card :)";
+                var w=window.open("")
+                w.document.write(text)
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 align="center"><b>VOTER CARD REGISTRATION</b></h1>
+    <div id="div1">
+        <form action="send.php" method="post" name="myform" onsubmit="return validateForm()">
+            <p>
+                <label for="fname">First Name : </label>
+                <input type="text" id="fname" class="cls" name="fname" size="40" rounded required>
+            </p>
+            <p>
+                <label for="mname">Middle Name : </label>
+                <input type="text" id="mname" name="mname" class="cls" size="40" rounded required>
+            </p>
+            <p>
+                <label for="lname">Last Name : </label>
+                <input type="text" id="lname" name="lname" class="cls" size="40" rounded required>
+            </p>
+            <p>
+                <label for="dob">Date Of Birth : </label>
+                <input type="date" id="dob" class="cls" name="dob" size="40" rounded required>
+            </p>
+            <p>
+                <label for="email">Email ID : </label>
+                <input type="email" name="email" id="email" class="cls" size="40" rounded required>
+            </p>
+            <p>
+                <label for="mob">Contact Number : </label>
+                <input type="number" id="mob" name="mob" class="cls" size="40" rounded required>
+            </p>
+            <p>
+                <label for="aadhar">Aadhar Number : </label>
+                <input type="number" name="aadhar" class="cls" id="aadhar" size="40" rounded required>
+            </p>
+            <p>
+                <label for="addre">Permanent Address : </label>
+                <input type="text" name="addre" id="addre" class="cls" size="40" rounded required>
+            </p>
+            <p>
+                <input type="submit" value="Submit" name="submit" rounded>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

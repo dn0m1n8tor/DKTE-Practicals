@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        input[type=text],input[type=email]{
+            height: max-content;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            width: 250px;
+        }
+        input[type=submit] {
+            background-color: #62529c;
+            border: 1px black;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px 0 rgb(0,0,0,0.2),0 6px 20px 0 rgb(0,0,0,0.19);
+            color: #fff;
+            text-decoration: none;
+            margin: auto;
+            cursor: pointer;
+            font-size: 18px;
+            text-align: center;
+            
+          }
+          label{
+            display: inline-block;
+            width: 250px;
+            text-align: left;
+            font-size: 20px;
+        }
+        #myDiv{
+            box-shadow: 0 8px 16px 0 rgb(0,0,0,0.2),0 6px 20px 0 rgb(0,0,0,0.19);
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+            padding-top: 10px;
+            background-color: rgb(128, 0, 255 ,0.3) ;
+        }
+        body{
+            margin-top: 15px; 
+            margin-bottom: 15px;
+        }
+    </style>
+    <script >
+        function myFunction(){
+            let id = document.forms["myForm1"]["id"].value;
+            let name = document.forms["myForm1"]["name"].value;
+            let mail = document.forms["myForm1"]["mail"].value;
+            if(id.length==8 && name.length!=0 && mail.length!=0){
+               return true;
+            }
+            else{
+                alert("Input field should not be empty !!!");
+                return false;
+
+            }
+        }
+        function myFunction2(){
+            let did = document.forms["myForm3"]["did"].value;
+            if(did.length==8){
+               return true;
+            }
+            else{
+                alert("Enter a valid ID in input field !!!");
+                return false;
+
+            }
+        }
+        function myFunction3(){
+            let uid = document.forms["myForm4"]["uid"].value;
+            let uname = document.forms["myForm4"]["uname"].value;
+            let umail = document.forms["myForm4"]["umail"].value;
+            if(uid.length==8 && uname.length!=0 && umail.length!=0){
+               return true;
+            }
+            else{
+                alert("Enter a valid ID OR Email OR Name in input field !!!");
+                return false;
+
+            }
+        }
+        function resetFunction()
+        {
+            document.getElementById("myForm1").reset();
+            document.getElementById("myForm3").reset();
+            document.getElementById("myForm4").reset();
+        }
+    </script>
+</head>
+<body class="container" align="center" >
+    <div id="myDiv">
+        <h3>Data Insertion</h3>
+        <form action="send.php" method="post" name="myForm1" id="myForm1" onsubmit="return myFunction()" >
+            <label for="id">Student ID : </label>
+            <input type="text" name="id" id="id"><br>
+            <label for="name">Student Name : </label>
+            <input type="text" name="name" id="name"><br>
+            <label for="mail">Student Email : </label>
+            <input type="email" name="mail" id="mail"><br>
+            <input type="submit" name="submit" id="submit" value="Insert" >
+        <br>
+        </form>
+        <br> <br>
+        <h3>Delete Entry</h3>
+        <form action="deleteEntry.php" name="myForm3" id="myForm3" method="post" onsubmit="return myFunction2()">
+            <label for="did">Student ID : </label>
+            <input type="text" name="did" id="did"><br>
+            <input type="submit" name="submit" id="submit" value="Delete" >
+        </form><br><br>
+        <h3>Update Entry</h3>
+        <form action="updateInfo.php" name="myForm4" id="myForm4" method="post" onsubmit="return myFunction3()">
+            <label for="uid">Enter Student ID : </label>
+            <input type="text" name="uid" id="uid"><br>
+            <label for="uname">Updated Name : </label>
+            <input type="text" name="uname" id="uname"><br>
+            <label for="umail">Updated Email : </label>
+            <input type="email" name="umail" id="umail"><br>
+            <input type="submit" name="submit" id="submit" value="Update">
+        </form>
+        <br><br>
+        <form action="#" onsubmit="return resetFunction()" name="ResetForm">
+            <input type="submit" name="submit" id="submit" value="Reset All">
+        </form>
+        <br>
+        <form action="retrive.php" method="post" name="myForm2" >
+            <input type="submit" name="button" id="button" value="Retrive Data">
+        </form>
+        <br>
+    </div>
+</body>
+</html>

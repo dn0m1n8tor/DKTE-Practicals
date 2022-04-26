@@ -1,0 +1,36 @@
+h1{
+    background-color: black;
+    color: white;
+    text-align: center;
+ padding: 15px;
+}
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"]
+{
+    width: 250px;
+    padding:8px;
+}
+input[type="submit"]{
+    margin-left: 550px;
+    width:25%;
+    padding:5px;
+    background-color: black;
+    color:white;
+}
+.ds1{
+    margin-left:35%;
+   
+}
+.ds2{
+    margin-left: 35%;
+}
+.ds3{
+    margin-left: 35%;
+}.ds4{
+    margin-left: 35%;
+}
+.ds5{
+    margin-left:35%;
+}

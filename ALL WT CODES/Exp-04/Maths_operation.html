@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Operations</title>
+    <script type="text/javascript">
+       function add()
+       {
+        let x = document.getElementById('num1').value;
+        let y = document.getElementById('num2').value;
+        let z = parseInt(x) + parseInt(y);
+        document.getElementById("res").innerHTML=z;
+        //window.alert("Addition is : "+z);
+       }
+       function mul(){
+        let x = document.getElementById('num1').value;
+        let y = document.getElementById('num2').value;
+        let z = parseInt(x) * parseInt(y);
+        document.getElementById("res").innerHTML=z;
+       }
+       function sub(){
+        let x = document.getElementById('num1').value;
+        let y = document.getElementById('num2').value;
+        let z = parseInt(x) - parseInt(y);
+        document.getElementById("res").innerHTML=z;
+       }
+       function divide(){
+        let x = document.getElementById('num1').value;
+        let y = document.getElementById('num2').value;
+        let z = parseInt(x) / parseInt(y);
+        document.getElementById("res").innerHTML=z;
+       }
+    </script>
+    <style type="text/css">
+        #div1{
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;  
+            background-color: aquamarine;     
+        }
+        h1{
+            font-family: 'Times New Roman', Times, serif;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" align="center">
+        
+        <h1>Mathematical Operations</h1>
+        <div>
+            <label for="num1">Enter number 1 :</label>
+            <input type="text" id="num1" name="inp1" maxlength="8"><br><br>
+            <label for="num2">Enter number 2 :</label>
+            <input type="text" id="num2" name="inp2" maxlength="8"><br><br>
+            <input type="button" name="but1" value="Addition" onclick="add()">
+            <input type="button" name="but2" value="subtraction" onclick="sub()">
+            <input type="button" name="but3" value="Multiplication" onclick="mul()">
+            <input type="button" name="but4" value="Division" onclick="divide()"><br><br>
+            <p>Result : </p>  
+            <p id="res"></p>
+            <br>
+        </div>
+    </div>
+</body>
+</html>
